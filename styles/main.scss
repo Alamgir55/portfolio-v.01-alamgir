@@ -8,6 +8,15 @@ body {
   width: 100%;
   font-family: "Montserrat", "Helvetica" !important;
 }
+.base-page {
+  padding-top: 150px;
+  color: white;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
 .absolute {
   position: absolute;
 }
