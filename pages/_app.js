@@ -2,12 +2,10 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/styles/main.scss'
+import {useGetUser} from '@/actions/user';
 
+const App = ({ Component, pageProps }) => 
+     <Component {...pageProps} />
 
-const App = ({ Component, pageProps }) => {
-  
-    console.log(process.env.AUTH0_DOMAIN)
-    return <Component {...pageProps} />
-}
 
 export default App
