@@ -63,6 +63,9 @@ const Header = ({user, loading}) => {
               <NavItem className="port-navbar-item clickable">
                 <BsNavLink href="/cv" title="Cv"/>
               </NavItem>
+              <NavItem className="port-navbar-item clickable">
+                <BsNavLink href="/secret" title="Secret"/>
+              </NavItem>
             </Nav>
             <Nav navbar>
               { !loading && 
