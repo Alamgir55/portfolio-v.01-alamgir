@@ -1,33 +1,55 @@
 import React from 'react'
 import BaseLayout from '@/components/layouts/BaseLayout'
 import BasePage from '@/components/BasePage'
-import {useGetPostById} from '@/actions'
 import {useRouter} from 'next/router'
 import {useGetUser} from '@/actions/user';
+import PortfolioApi from '@/lib/api/portfolios'
 
 
-const Portfolio = () => {
-  const router = useRouter();
+const Portfolio = ({portfolio}) => {
   const {data: dataU, loading: loadingU } = useGetUser();
 
-  
-  const { data: portfolio, error, loading } = useGetPostById(router.query.id);
     return (
       <BaseLayout user={dataU} loading={loadingU}>
-        <BasePage>
-        {loading && <p>Loading Data...</p>}
-        {error && <div className="alert alert-danger">{error.message}</div>}
-        { portfolio &&
-          <>
-            <h1>I am Portfolio page</h1>
-            <h2>{portfolio.title}</h2>
-            <p>Body: {portfolio.body}</p>
-            <p>ID: {portfolio.id}</p>
-          </>
-        }
+        <BasePage header="Portfolio Details">
+          {
+            JSON.stringify(portfolio)
+          } 
         </BasePage>
       </BaseLayout>
     )
+}
+
+//<---This is serverSide Rendering ---->
+
+// export async function getServerSideProps({query}){
+//   const json = await new PortfolioApi().getById(query.id);
+//   const portfolio = json.data;
+
+//   return {props: {portfolio}};
+// }
+
+
+//<---This is staticSide Rendering ---->
+
+// This function is excuted at the build time static rendering
+export async function getStaticPaths(){
+  const json = await new PortfolioApi().getAll();
+  const portfolios = json.data;
+
+  // Get the paths we want pre-render base on portfolio ID
+  const paths = portfolios.map(portfolio => {
+    return {
+      params: {id: portfolio._id}
+    }
+  });
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({params}){
+  const json = await new PortfolioApi().getById(params.id);
+  const portfolio = json.data;
+  return { props: {portfolio}}
 }
 
 export default Portfolio;

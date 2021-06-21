@@ -5,17 +5,26 @@ import BasePage from '@/components/BasePage'
 import {useGetUser} from '@/actions/user';
 import PortfolioApi from '@/lib/api/portfolios';
 import PortfolioCard from '@/components/PortfolioCard'
+import {useRouter} from 'next/router';
 
 
 const Portfolios = ({portfolios}) => {
+    const router = useRouter();
     const {data: dataU, loading: loadingU } = useGetUser();
 
     return (
         <BaseLayout user={dataU} loading={loadingU}>
-          <BasePage className="portfolio-page">
+          <BasePage
+            header="Portfolios"
+            className="portfolio-page">
             <Row>
               { portfolios.map(portfolio => 
-                <Col key={portfolio._id} md="4">
+                <Col 
+                  key={portfolio._id} 
+                  onClick={() => {
+                    router.push('/portfolios/[id]', `/portfolios/${portfolio._id}`);
+                  }}
+                  md="4">
                   <PortfolioCard portfolio={portfolio} />
                 </Col>
                 ) 

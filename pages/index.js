@@ -12,7 +12,7 @@ const Index = () => {
       const {data, error, loading } = useGetUser();
 
         return (
-          <BaseLayout user={data} loading={loading} className="cover">
+          <BaseLayout user={data} loading={loading} className="cover" navClass="transparent">
               <div className="main-section">
                   <div className="background-image">
                   <img src="/images/background-index.png" />
