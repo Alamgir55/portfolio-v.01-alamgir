@@ -1,10 +1,12 @@
 
-import axios from 'axios';
+import PortfolioApi from '@/lib/api/portfolios'
+import auth0 from '../../../utils/auth0'
 
 export default async function createPortfolio(req, res){
   try {
-    const data = req.body;
-    await axios.post(process.env.PORTFOLIO_API_URL + '/portfolios', data);
+    const { accessToken } = await auth0.getSession(req)
+    console.log(accessToken);
+    await new PortfolioApi().createPortfolio(req.body);
     return res.json({message: 'Portfolio was created!'});
   } catch(e) {
     console.log('We are getting error here')
