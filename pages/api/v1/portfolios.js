@@ -9,6 +9,6 @@ export default async function createPortfolio(req, res){
     return res.json(json.data);
   } catch(e) {
     console.log('We are getting error here')
-    return res.status(e.status || 400).end(e.message);
+    return res.status(e.status || 422).json(e.response.data);
   }
 }
