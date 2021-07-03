@@ -2,10 +2,10 @@ import DatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from 'react';
 
-const PortfolioForm = ({onSubmit, initialData = {}}) => {
+const PortfolioForm = ({onSubmit}) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const { register, handleSubmit, setValue } = useForm({defaultValues: initialData});
+  const { register, handleSubmit, setValue } = useForm();
 
   useEffect(() => {
     register({name: 'startDate'});
@@ -23,8 +23,7 @@ const PortfolioForm = ({onSubmit, initialData = {}}) => {
           <div className="form-group">
             <label htmlFor="title">Title</label>
             <input
-              //ref={register}
-              {...register("title")}
+              ref={register}
               name="title"
               type="text"
               className="form-control"
@@ -34,8 +33,7 @@ const PortfolioForm = ({onSubmit, initialData = {}}) => {
           <div className="form-group">
             <label htmlFor="city">Company</label>
             <input
-              //ref={register}
-              {...register("company")}
+              ref={register}
               name="company"
               type="text"
               className="form-control"
@@ -45,8 +43,7 @@ const PortfolioForm = ({onSubmit, initialData = {}}) => {
           <div className="form-group">
             <label htmlFor="city">Company Website</label>
             <input
-              //ref={register}
-              {...register("companyWebsite")}
+              ref={register}
               name="companyWebsite"
               type="text"
               className="form-control"
@@ -56,8 +53,7 @@ const PortfolioForm = ({onSubmit, initialData = {}}) => {
           <div className="form-group">
             <label htmlFor="street">Location</label>
             <input
-              //ref={register}
-              {...register("location")}
+              ref={register}
               name="location"
               type="text"
               className="form-control"
@@ -67,8 +63,7 @@ const PortfolioForm = ({onSubmit, initialData = {}}) => {
           <div className="form-group">
             <label htmlFor="street">Job Title</label>
             <input
-              //ref={register}
-              {...register("jobTitle")}
+              ref={register}
               name="jobTitle"
               type="text"
               className="form-control"
@@ -78,8 +73,7 @@ const PortfolioForm = ({onSubmit, initialData = {}}) => {
           <div className="form-group">
             <label htmlFor="description">Description</label>
             <textarea
-              //ref={register}
-              {...register("description")}
+              ref={register}
               name="description"
               rows="5"
               type="text"

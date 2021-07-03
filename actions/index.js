@@ -25,8 +25,6 @@ export function useApiHandler(apiCall){
       console.log(json.data);
       return json.data;
     } catch(e){
-      console.log(e.response)
-      debugger
       const message = (e.response && e.response.data) || 'Ooops, something went wrong...';
       setReqState({error: message, data: null, loading: false});
     }

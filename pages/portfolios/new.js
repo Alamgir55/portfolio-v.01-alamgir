@@ -18,7 +18,7 @@ const PortfolioNew = ({user}) => {
                 <Row>
                   <Col m='8'>
                     <PortfolioForm onSubmit={createPortfolio} />
-                    { error && <div className="alert alert-danger">{error}</div> }
+                    { error && <div className="alert alert-danger mt-2">{error}</div> }
                   </Col>
                 </Row>
               </BasePage>
