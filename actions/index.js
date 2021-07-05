@@ -22,7 +22,7 @@ export function useApiHandler(apiCall){
     try{
       const json = await apiCall(...data);
       setReqState({error: null, data: json.data, loading: false});
-      console.log(json.data);
+      //console.log(json.data);
       return json.data;
     } catch(e){
       const message = (e.response && e.response.data) || 'Ooops, something went wrong...';
