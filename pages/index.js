@@ -6,7 +6,7 @@ import Typed from 'react-typed';
 import {useGetUser} from '@/actions/user';
 
 
-const ROULS = ['Developer', 'Teach Lover', 'Team Player', 'Coursor Creator', 'React.js', 'Angular']
+const ROULS = ['Developer', 'Teach Lover', 'Team Player', 'React.js', 'Node.JS']
 const Index = () => {
 
       const {data, error, loading } = useGetUser();
@@ -40,7 +40,7 @@ const Index = () => {
                           <Col md="6" className="hero-welcome-wrapper">
                           <div className="hero-welcome-text">
                               <h1>
-                              Welcome to the portfolio website of Filip Jerga.
+                              Welcome to the portfolio website of Alamgir Hossain.
                               Get informed, collaborate and discover projects I was working on through the years!
                               </h1>
                           </div>
