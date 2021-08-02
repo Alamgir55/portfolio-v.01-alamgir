@@ -21,16 +21,10 @@ const auth0 = initAuth0({
   issuerBaseURL: process.env.AUTH0_DOMAIN,
   baseURL: process.env.BASE_URL,
   clientID: process.env.AUTH0_CLIENT_ID,
-  clientSecret: process.env.AUTH0_CLIENT_SECRET
-  //scope: 'openid profile',
-  //audience: process.env.AUTH0_AUDIENCE,
-  //redirectUri: process.env.AUTH0_REDIRECT_URL,
-  //postLogoutRedirectUri: process.env.AUTH0_POST_LOGOUT_REDIRECT_URL,
-  // session: {
-  //   // The secret used to encrypt the cookie.
-  //   cookieSecret: process.env.AUTH0_COOKIE_SECRET,
-  //   storeAccessToken: true
-  // }
+  clientSecret: process.env.AUTH0_CLIENT_SECRET,
+  routes: {
+    postLogoutRedirect: process.env.AUTH0_POST_LOGOUT_REDIRECT_URL
+ }
 })
 
 export default auth0;
