@@ -31,10 +31,10 @@ const BsNavBrand = () =>
   </Link>
 
 const LoginLink = () => 
-  <a className="nav-link port-navbar-link" href="/api/v1/login" >Login</a>
+  <a className="nav-link port-navbar-link" href="/api/auth/login" >Login</a>
 
 const LogoutLink = () => 
-  <a className="nav-link port-navbar-link" href="/api/v1/logout">Logout</a>
+  <a className="nav-link port-navbar-link" href="/api/auth/logout">Logout</a>
 
 
 const AdminMenu = () => {

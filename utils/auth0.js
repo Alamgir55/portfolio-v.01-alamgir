@@ -1,20 +1,37 @@
 import { initAuth0 } from '@auth0/nextjs-auth0';
 
 
+// const auth0 = initAuth0({
+//   domain: process.env.AUTH0_DOMAIN,
+//   clientId: process.env.AUTH0_CLIENT_ID,
+//   clientSecret: process.env.AUTH0_CLIENT_SECRET,
+//   scope: 'openid profile',
+//   audience: process.env.AUTH0_AUDIENCE,
+//   redirectUri: process.env.AUTH0_REDIRECT_URL,
+//   postLogoutRedirectUri: process.env.AUTH0_POST_LOGOUT_REDIRECT_URL,
+//   session: {
+//     // The secret used to encrypt the cookie.
+//     cookieSecret: process.env.AUTH0_COOKIE_SECRET,
+//     storeAccessToken: true
+//   }
+// });
+
 const auth0 = initAuth0({
-  domain: process.env.AUTH0_DOMAIN,
-  clientId: process.env.AUTH0_CLIENT_ID,
-  clientSecret: process.env.AUTH0_CLIENT_SECRET,
-  scope: 'openid profile',
-  audience: process.env.AUTH0_AUDIENCE,
-  redirectUri: process.env.AUTH0_REDIRECT_URL,
-  postLogoutRedirectUri: process.env.AUTH0_POST_LOGOUT_REDIRECT_URL,
-  session: {
-    // The secret used to encrypt the cookie.
-    cookieSecret: process.env.AUTH0_COOKIE_SECRET,
-    storeAccessToken: true
-  }
-});
+  secret: process.env.AUTH0_SECRET,
+  issuerBaseURL: process.env.AUTH0_DOMAIN,
+  baseURL: process.env.BASE_URL,
+  clientID: process.env.AUTH0_CLIENT_ID,
+  clientSecret: process.env.AUTH0_CLIENT_SECRET
+  //scope: 'openid profile',
+  //audience: process.env.AUTH0_AUDIENCE,
+  //redirectUri: process.env.AUTH0_REDIRECT_URL,
+  //postLogoutRedirectUri: process.env.AUTH0_POST_LOGOUT_REDIRECT_URL,
+  // session: {
+  //   // The secret used to encrypt the cookie.
+  //   cookieSecret: process.env.AUTH0_COOKIE_SECRET,
+  //   storeAccessToken: true
+  // }
+})
 
 export default auth0;
 
@@ -26,7 +43,7 @@ export const authorizeUser = async (req, res) => {
   const session = await auth0.getSession(req);
   if(!session || !session.user){
     res.writeHead(302, {
-      Location: '/api/v1/login'
+      Location: '/api/auth/login'
     });
     res.end();
     return null;
@@ -38,7 +55,7 @@ export const withAuth = (getData) => role => async ({req, res}) => {
   const session = await auth0.getSession(req);
   if(!session || !session.user || (role && !isAuthorized(session.user, role))){
     res.writeHead(302, {
-      Location: '/api/v1/login'
+      Location: '/api/auth/login'
     });
     res.end();
     return {props: {}};

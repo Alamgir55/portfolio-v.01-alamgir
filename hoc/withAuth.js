@@ -11,10 +11,10 @@ const withAuth = (Component) => (role) => {
       return <p>Loading....</p>
     }
     if(!data){
-      return <Redirect ssr to="/api/v1/login" />
+      return <Redirect ssr to="/api/auth/login" />
     } else {
       if (role && !isAuthorized(data, role)){
-        return <Redirect ssr to="/api/v1/login" />
+        return <Redirect ssr to="/api/auth/login" />
       }
       return <Component user={data} loading={loading} {...props} />
     }
