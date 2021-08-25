@@ -34,7 +34,7 @@ export const isAuthorized = (user, role) => {
 }
 
 export const authorizeUser = async (req, res) => {
-  const session = await auth0.getSession(req);
+  const session = await auth0.getSession(req, res);
   if(!session || !session.user){
     res.writeHead(302, {
       Location: '/api/auth/login'
@@ -46,7 +46,7 @@ export const authorizeUser = async (req, res) => {
 }
 
 export const withAuth = (getData) => role => async ({req, res}) => {
-  const session = await auth0.getSession(req);
+  const session = await auth0.getSession(req, res);
   if(!session || !session.user || (role && !isAuthorized(session.user, role))){
     res.writeHead(302, {
       Location: '/api/auth/login'

@@ -5,7 +5,8 @@
 
   //my//
   &.with-bg {
-    background-color: #2c3e50;
+    // background-color: #2c3e50;
+    background-color: #557a95;
     padding: 20px;
   }
 
@@ -32,11 +33,13 @@
 
       &.active {
         color: #dba919;
+        //color: #fccd04;
       }
 
       &:hover,
       &:focus {
         color: #dba919;
+        //color: #fccd04;
       }
     }
   }
@@ -49,6 +52,7 @@
 
       &.active {
         color: #dba919;
+        //color: #fccd04;
       }
     }
 
@@ -58,4 +62,12 @@
       margin-right: 10px;
     }
   }
+}
+
+.port-navbar.transparent.is-open {
+  background-color: #557a95;
+}
+
+.port-navbar.transparent.is-open {
+  transition: 1s;
 }
