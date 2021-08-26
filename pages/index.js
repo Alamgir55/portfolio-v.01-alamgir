@@ -8,7 +8,7 @@ import {useGetUser} from '@/actions/user';
 const ROULS = ['Developer', 'Teach Lover', 'Team Player', 'React.js', 'Node.JS']
 const Index = () => {
 
-const [isFlipping, setIsFlipping] = useState(false);
+const [isFlipping, setIsFlipping] = useState(true);
 const {data, loading } = useGetUser();
 const flipInterval = useRef();
 

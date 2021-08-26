@@ -14,15 +14,16 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
+import ActiveLink from './ActiveLink';
 
 const BsNavLink = props => {
   const {href, title, className} = props;
   return (
-    <Link href={href}>
+    <ActiveLink activeClassName="active" href={href}>
       <g className={`nav-link port-navbar-link ${className}`}>
         {title}
       </g>
-    </Link>
+    </ActiveLink>
   )
 }
 
