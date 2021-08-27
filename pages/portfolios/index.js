@@ -28,6 +28,7 @@ const Portfolios = ({portfolios: initialPortfolios}) => {
     return (
         <BaseLayout user={dataU} loading={loadingU}>
           <BasePage
+            title='Newest Portfoilos - Alamgir Hossain'
             header="Portfolios"
             className="portfolio-page">
             <Row>

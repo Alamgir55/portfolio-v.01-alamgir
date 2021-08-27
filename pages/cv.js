@@ -10,7 +10,7 @@ const Cv = () => {
 
       return (
           <BaseLayout user={data} loading={loading}>
-            <BasePage>
+            <BasePage title='My Experiences - Alamgir Hossain'>
                 <Row>
                   <Col md={{size: 8, offset: 2}}>
                     <iframe style={{width: '100%', height: '800px'}} src="/jerga_cv.pdf" />

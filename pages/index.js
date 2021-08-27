@@ -1,5 +1,6 @@
 import {useState, useRef, useEffect} from 'react'
 import BaseLayout from '@/components/layouts/BaseLayout'
+import BasePage from '@/components/BasePage'
 import { Container, Row, Col } from 'reactstrap'
 import Typed from 'react-typed';
 import {useGetUser} from '@/actions/user';
@@ -25,6 +26,7 @@ const flipInterval = useRef();
 
   return (
     <BaseLayout user={data} loading={loading} className={`cover ${isFlipping ? 'cover-orange' : 'cover-blue'}`} navClass="transparent">
+      <BasePage indexPage title="Portfolio - Alamgir hossain">
         <div className="main-section">
             <div className="background-image">
             <img src="/images/background-index.png" />
@@ -89,6 +91,7 @@ const flipInterval = useRef();
                 </Row>
             </Container>
         </div>
+      </BasePage>
     </BaseLayout>
   )
 } 
