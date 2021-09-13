@@ -35,17 +35,18 @@ const About = () => {
                     <div className={`${createFadeInClass()}`}>
                       <p>My name is Alamgir Hossain and I am an experienced software engineer and freelance developer. </p>
                       <p>
-                      I have a Master's degree in Artificial Intelligence and several years of experience working
-                      on a wide range of technologies and projects from C++ development for ultrasound devices to
-                        modern mobile and web applications in React and Angular.
+                      I love being straightforward with everybody and also being open-minded. Also love walking down the lake sidewalk with full green trees in evening with redness on the sky sunset that reflects on the lake water.
                       </p>
                       <p>
                       Throughout my career, I have acquired advanced technical knowledge and the ability to explain
-                      programming topics clearly and in detail to a broad audience. I invite you to take my course,
-                      where I have put a lot of effort to explain web and software engineering concepts in a detailed,
-                      hands-on and understandable way.
+                      programming topics clearly and in detail.
                       </p>
+
                     </div>
+
+                    <div className={`${createFadeInClass()}`}>
+                      <p>Contact me at roqeb555@gmail.com</p>
+                    </div>  
                 </Col>
               </Row>
             </BasePage>
